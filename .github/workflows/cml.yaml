@@ -4,6 +4,9 @@ jobs:
   run:
     runs-on: ubuntu-latest # machine to run on
     # optionally use a convenient Ubuntu LTS + DVC + CML image
+    permissions:
+      issues: write
+      pull-requests: write
     container: ghcr.io/iterative/cml:0-dvc2-base1 # optional
     steps:
       - uses: actions/checkout@v4 # This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it.
