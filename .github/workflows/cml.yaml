@@ -1,7 +1,7 @@
-name: your-workflow-name # workflow name
-on: [push] # on: [trigger]
+name: CML playground | Wine dataset # workflow name
+on: [push, workflow_dispatch] # on: [trigger]
 jobs:
-  experiment-1:
+  experiment-2:
     runs-on: ubuntu-latest # machine to run on
     # optionally use a convenient Ubuntu LTS + DVC + CML image
     container: ghcr.io/iterative/cml:0-dvc2-base1 # optional
