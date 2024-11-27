@@ -24,10 +24,10 @@ jobs:
 
           echo "MODEL METRICS"
           cat metrics.txt
-      - name: Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Post reports as comments in GitHub PRs
-          cat results.txt >> report.md
-          cml comment create report.md
+      # - name: Write CML report
+      #   env:
+      #     REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     # Post reports as comments in GitHub PRs
+      #     cat results.txt >> report.md
+      #     cml comment create report.md
