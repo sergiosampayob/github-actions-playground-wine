@@ -1,9 +1,8 @@
 name: your-workflow-name # workflow name
-on: [push, workflow_dispatch] # on: [trigger]
+on: [push] # on: [trigger]
 jobs:
-  run:
+  experiment-1:
     runs-on: ubuntu-latest # machine to run on
-    permissions: write-all
     # optionally use a convenient Ubuntu LTS + DVC + CML image
     container: ghcr.io/iterative/cml:0-dvc2-base1 # optional
     steps:
@@ -28,13 +27,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Create CML report
-          echo "## MODEL METRICS" > report.md
+          echo "## MODEL METRICS"
           cat metrics.txt >> report.md
           echo '![](./plot.png "Confusion Matrix")' >> report.md
-          cml comment create report.md
-
-          echo "## Data viz" >> report.md
-          echo '![](./feature_importance.png "Feature Importance")' >> report.md
-          cml comment create report.md
-          echo '![](./residuals.png "Residuals")' >> report.md
           cml comment create report.md
